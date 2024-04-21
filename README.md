@@ -4,6 +4,7 @@
 
 ## Features
 
+- It allows Arabic and English
 - Can upload .xls file 
 - Calculates the number of working hours
 - It counts the days of absence 
