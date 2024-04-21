@@ -127,9 +127,8 @@ const UploadFil = ({ t }: LocalizationTypes) => {
       // attendanceTime;
       setLoading(true);
       // AddFileExl( { attendanceTime: data });
-      AddFileExl({
-        attendanceTime: data,
-      });
+      const attendanceTime: AttendanceTime[] = data as AttendanceTime[];
+      AddFileExl({ attendanceTime });
     }
     if (isError && error instanceof Error) {
       const errorData: { response?: { data?: { message?: string } } } = error as {
