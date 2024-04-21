@@ -1,0 +1,39 @@
+.auth-box-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+
+    .auth-box-holder {
+        width: 400px;
+        padding: 20px 40px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        .auth-title {
+            text-align: center;
+            margin-bottom: 0px;
+            font-size: 50px;
+            font-weight: bold;
+            color: #1877f2;
+        }
+        .form-style {
+            .ant-form-item {
+                margin-bottom: 20px;
+            }
+        }
+
+        .account-register-row {
+            text-align: center;
+            margin-top: 20px;
+            a {
+                color: #1877f2;
+                font-weight: bold;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

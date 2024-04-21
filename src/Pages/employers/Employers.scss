@@ -1,0 +1,24 @@
+.employers{
+    
+    .table{
+        padding: 20px;
+        .request-search{
+            margin-bottom: 30px;
+            // width: 80%;
+        }
+        .table-customers{
+            width: 100%;
+            .ant-table-tbody > tr > td{
+                padding: 20px 30px;
+                text-align: center;
+                cursor: pointer;
+            }
+            .ant-table-pagination.ant-pagination{
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

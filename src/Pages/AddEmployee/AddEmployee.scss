@@ -1,0 +1,66 @@
+.add-employee{
+    background: #fff;
+    padding: 20px;
+    min-height: 85vh;
+    .title-add{
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        color: #1877f2;
+        margin-bottom: 50px;
+        
+    }
+    .form-add-employee{
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 20px;
+        .ant-col{
+            // padding: 10px;
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            .ant-form-item{
+                width: 50%;
+                .ant-row{
+                    width: 100%;
+                    .ant-picker{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .btn-add-employee{
+            span{
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .title-add{
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+        .form-add-employee{
+            width: 100%;
+            gap: 10px;
+            .ant-col{
+                flex-direction: column;
+                gap: 10px;
+                padding:0px 10px;
+                .ant-form-item{
+                width: 100%;
+                .ant-row{
+                    width: 100%;
+                    .ant-picker{
+                        width: 100%;
+                    }
+                }
+            }
+            }
+        }
+    }
+}
