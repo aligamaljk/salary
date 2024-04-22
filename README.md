@@ -3,7 +3,7 @@
 >Salary this is a website that solves a problem how to calculate the salary and know the number of working hours and the number of days of absence and add a new employee this is by uploading the xlsx file and I can calculate
 
 ## Features
-
+- The site provides Arabic and English language
 - Can upload .xls file 
 - Calculates the number of working hours
 - It counts the days of absence 
