@@ -108,9 +108,6 @@ const Employers = ({ t }: LocalizationTypes) => {
   const { data, isLoading, isError, error,isFetching } = useQuery({
     queryKey: [queryKeys.employees],
     queryFn: () => getAllEmployees(),
-    // refetchOnWindowFocus: false,
-    // keepPreviousData: true,
-    // staleTime: 1000 * 60 * 5,
   });
   console.log(isFetching, 'isFetching');
 const dataCustomers: DataType[] =

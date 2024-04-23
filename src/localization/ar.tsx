@@ -50,9 +50,9 @@ const ar = {
   // calculationSystem End
   // employee info
   deleteEmployee: 'حذف الموظف',
-  deleteMes:"هل تريد حذف هذا الموظف؟",
-  deletedesc:"هل انت متاكد من حذف هذا الموظف؟",
-  successDelete:"تم حذف الموظف بنجاح",
+  deleteMes: 'هل تريد حذف هذا الموظف؟',
+  deletedesc: 'هل انت متاكد من حذف هذا الموظف؟',
+  successDelete: 'تم حذف الموظف بنجاح',
   employeePage: 'صفحة الموظف',
   serialNumber: 'رقم التسلسل:',
   job: 'الوظيفة:',
@@ -75,7 +75,7 @@ const ar = {
   study3: 'دوام كامل',
   dataLast: 'تاريخ اخر ضبط:',
   salary: 'الراتب:',
-  searchName:"البحث بـ الاسم",
+  searchName: 'البحث بـ الاسم',
   // employee info End
   // table salary
   salaryTable: 'مواعيد حضوره وانصرافه لاخر شهر قبضه',
@@ -122,7 +122,8 @@ const ar = {
   requireGender: 'يرجى أدخال النوع',
   requireWorkingStatus: 'يرجى أدخال الحالة العملية',
   trainee: 'متدرب',
-  employed: 'موظف',
+  employee: 'موظف',
+  dismissed: 'غيب',
   graduate: 'خريج',
   fullTime: 'دوام كامل',
   birthDate: 'تاريخ الميلاد',

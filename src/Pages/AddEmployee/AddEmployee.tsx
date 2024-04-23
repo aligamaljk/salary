@@ -6,6 +6,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { queryKeys } from "../../Services/react-query/queryKeys";
+import { clearStoredToken, clearStoredUser } from "../../Services/user-storage";
 const AddEmployee = ({t} : LocalizationTypes ) => {
     const [form] = Form.useForm();
       const client = useQueryClient();
@@ -28,7 +29,16 @@ const AddEmployee = ({t} : LocalizationTypes ) => {
       },
       onError: (error: ErrorMessage) => {
         console.log(error?.response?.data, 'error');
-        message.error(error?.response?.data?.message);
+        if (
+          error?.response?.data?.message === 'Access Denied: Please login first'
+        ) {
+          navigate('/login');
+          clearStoredToken();
+          clearStoredUser();
+          message.error(t.loginFirst);
+        } else {
+          message.error(error?.response?.data?.message);
+        }
         setLoading(false);
       },
     });
@@ -88,10 +98,12 @@ const AddEmployee = ({t} : LocalizationTypes ) => {
               label={t.workingStatus}
               rules={[{ required: true, message: t.requireWorkingStatus }]}
             >
+              {/* [employed, dismissed, trainee] */}
               <Select placeholder={t.workingStatus}>
                 <Select.Option value="trainee">{t.trainee}</Select.Option>
-                <Select.Option value="employee">{t.employee}</Select.Option>
-                <Select.Option value="graduate">{t.graduate}</Select.Option>
+                <Select.Option value="employed">{t.employee}</Select.Option>
+                {/* <Select.Option value="graduate">{t.graduate}</Select.Option> */}
+                <Select.Option value="dismissed">{t.dismissed}</Select.Option>
               </Select>
             </Form.Item>
             <Form.Item
@@ -106,19 +118,25 @@ const AddEmployee = ({t} : LocalizationTypes ) => {
             </Form.Item>
           </Col>
           <Col>
-            <Form.Item name="birthDate" label={t.birthDate}
+            <Form.Item
+              name="birthDate"
+              label={t.birthDate}
               rules={[{ required: true, message: t.requiredBirthDate }]}
             >
               <DatePicker placeholder={t.birthDate} />
             </Form.Item>
-            <Form.Item name="joinedDate" label={t.joinedDate}
+            <Form.Item
+              name="joinedDate"
+              label={t.joinedDate}
               rules={[{ required: true, message: t.requiredJoinedDate }]}
             >
               <DatePicker placeholder={t.joinedDate} />
             </Form.Item>
           </Col>
           <Col>
-            <Form.Item name="baseSalary" label={t.basicSalary}
+            <Form.Item
+              name="baseSalary"
+              label={t.basicSalary}
               rules={[{ required: true, message: t.requiredBasicSalary }]}
             >
               <Input type="number" placeholder={t.basicSalary} />

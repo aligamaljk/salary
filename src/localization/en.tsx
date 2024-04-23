@@ -126,6 +126,7 @@ const en = {
   trainee: 'Trainee',
   employee: 'Employee',
   graduate: 'Graduate',
+  dismissed: 'Dismissed',
   fullTime: 'Full-time',
   birthDate: 'Date of Birth',
   requiredBirthDate: 'Please enter your date of birth',

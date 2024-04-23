@@ -198,6 +198,7 @@ export interface LocalizationTypes {
     loginFirst?: string;
     canceled?: string;
     searchName?: string;
+    dismissed?: string;
   };
 }
 

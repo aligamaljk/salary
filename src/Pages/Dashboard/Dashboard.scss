@@ -1,0 +1,89 @@
+.dashboard{
+    .title-dashboard{
+        font-size: 40px;
+        font-weight: 700;
+        margin-top: 50px;
+    }
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 50px;
+        .card{
+            height: 150px;
+            width: 100%;
+            height: fit-content;
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            .total-employees{
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                width: 100%;
+                padding: 0px 15px ;
+                gap: 20px;
+                p{
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #1890ff;
+                    text-align: center;
+                }
+            }
+            .add-employee-dashboard{
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    }
+    .progress{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        width: 100%;
+        gap: 50px;
+        margin-top: 50px;
+        .tooltip-dashboard{
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            // width: 300px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ant-progress-text{
+            text-align: center;
+        }
+    }
+    .table-dashboard{
+        margin: 50px auto;
+        background: #fff;
+        border-radius: 10px;
+        padding: 10px 30px 30px;
+        .title-table-dashboard{
+            font-size: 30px;
+            font-weight: 500;
+            text-align: start;
+            color: #1890ff;
+            padding-left: 35px;
+        }
+        .table-dashboard{
+            width: 100%;
+            margin: 0 !important;
+            .ant-table-thead > tr > th{
+                background-color: #27a0d0 !important ;
+                color: white;
+            }
+            .ant-table-tbody > tr > td{
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+    }
+}

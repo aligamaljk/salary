@@ -11,7 +11,7 @@ import EmployerDetails from "../Components/Salary/EmployerDetails/EmployerDetail
 import NotFound from "../Components/Common/NotFound/NotFound"
 import Register from "../Pages/auth/Register/Register"
 import AddEmployee from "../Pages/AddEmployee/AddEmployee"
-import Dashboard from "../Pages/Home/Dashboard"
+import Dashboard from "../Pages/Dashboard/Dashboard"
 const AppRouter = ({ t }: LocalizationTypes) => {
   const routes = useRoutes([
     {
