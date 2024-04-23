@@ -1,23 +1,24 @@
 import { Menu } from 'antd';
 // import './SidebarMenu.scss';
-import { IoMdHeartEmpty, IoIosPersonAdd } from 'react-icons/io';
+import {  IoIosPersonAdd } from 'react-icons/io';
 import { PiUsersThreeFill } from 'react-icons/pi';
 import { FaFileUpload } from 'react-icons/fa';
 import { GrDashboard } from 'react-icons/gr';
+import { VscQuestion } from 'react-icons/vsc';
 import {  useNavigate } from 'react-router-dom';
 import { JSX } from 'react/jsx-runtime';
 import { GetItemProps } from '../Types';
 
 type PropsType = {
   dashboard: string;
-  about: string;
+  faq: string;
   employees: string;
   uploadFile: string;
   addEmployee: string;
 };
 const SidebarMenu = ({
   dashboard,
-  about,
+  faq,
   employees,
   uploadFile,
   addEmployee,
@@ -36,7 +37,7 @@ const SidebarMenu = ({
   });
   const items = [
     getItem('', dashboard, null, <GrDashboard className="navbar-icon" />),
-    getItem('about', about, null, <IoMdHeartEmpty className="navbar-icon" />),
+    getItem('faq', faq, null, <VscQuestion className="navbar-icon" />),
     getItem(
       'employers',
       employees,

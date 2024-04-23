@@ -3,6 +3,7 @@ import { Language } from "../../Types";
 const USER_LOCALSTORAGE_KEY = 'user-data';
 const TOKEN_LOCALSTORAGE_KEY = 'access-token';
 const LANG_LOCALSTORAGE_KEY = 'lang';
+const DARKMODE_LOCALSTORAGE_KEY = 'dark-mode';
 
 
 export function getStoredUser(): string | undefined {
@@ -44,3 +45,17 @@ export function getLang(): Language | undefined {
   return storedLang ? JSON.parse(storedLang) : 'en';
 }
 
+// start dark mode
+
+export function getStoredDarkMode(): boolean | undefined {
+  const storedDarkMode = localStorage.getItem(DARKMODE_LOCALSTORAGE_KEY);
+  return storedDarkMode ? JSON.parse(storedDarkMode) : undefined ;
+}
+
+export function setStoredDarkMode(darkMode: boolean): void {
+  localStorage.setItem(DARKMODE_LOCALSTORAGE_KEY, JSON.stringify(darkMode));
+}
+
+export function clearStoredDarkMode(): void {
+  localStorage.removeItem(DARKMODE_LOCALSTORAGE_KEY);
+}

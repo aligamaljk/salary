@@ -9,6 +9,7 @@ export interface UserState {
   user: string | null;
   token: string | null;
   currentLang: Language;
+  currentDarkMode: boolean | undefined;
 }
 export interface GetItemProps {
   key: string | '';
@@ -199,6 +200,7 @@ export interface LocalizationTypes {
     canceled?: string;
     searchName?: string;
     dismissed?: string;
+    faq?: string;
   };
 }
 

@@ -1,5 +1,9 @@
 import { Dropdown, Button,Layout, Space, Badge, Avatar } from "antd";
-import { MdLanguage } from 'react-icons/md';
+import {
+  MdLanguage,
+  MdOutlineDarkMode,
+  MdOutlineLightMode,
+} from 'react-icons/md';
 const { Header, Sider, Content } = Layout;
 import {
     MenuUnfoldOutlined,
@@ -9,16 +13,17 @@ import { useEffect, useState } from "react";
 import SidebarMenu from "./SidebarMenu";
 import { Outlet, useNavigate } from "react-router";
 import { useAppDispatch } from "../Store/hooks";
-import { setCurrentLang } from "../Store/reducers/user";
+import { setCurrentDarkMode, setCurrentLang } from "../Store/reducers/user";
 import "./Layout.scss"
-import { clearStoredToken, clearStoredUser, getStoredToken, getStoredUser, setLang } from "../Services/user-storage";
+import { clearStoredToken, clearStoredUser, getStoredToken, getStoredUser, setLang, setStoredDarkMode } from "../Services/user-storage";
 import { LocalizationTypes } from '../Types';
 import axiosInstance from "../Services/react-query/axiosInstance";
 const OwnLayout = ({ t }: LocalizationTypes) => {
-  const { dashboard , about, employees, uploadFile, addEmployee} = t;
+  const { dashboard, faq, employees, uploadFile, addEmployee } = t;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [token, setToken] = useState<string | null>();
+  const [dark, setDark] = useState<boolean>(false);
   // console.log(token, 'token');
   
   const [collapsed, setCollapsed] = useState(false);
@@ -63,7 +68,7 @@ const OwnLayout = ({ t }: LocalizationTypes) => {
         <Layout>
           <Sider
             width={282}
-            theme="light"
+            theme={dark ? 'dark' : 'light'}
             breakpoint="lg"
             collapsed={collapsed}
             collapsible
@@ -76,17 +81,35 @@ const OwnLayout = ({ t }: LocalizationTypes) => {
             {/* <SidebarMenu dashboard={dashboard} about={about} employees={employees} uploadFile={uploadFile} addEmployee={addEmployee}  /> */}
             <SidebarMenu
               dashboard={dashboard ?? 'Default Dashboard'}
-              about={about ?? 'About'}
+              faq={faq ?? 'faq'}
               employees={employees ?? 'Employees'}
               uploadFile={uploadFile ?? 'Upload File'}
               addEmployee={addEmployee ?? 'Add Employee'}
             />
           </Sider>
           <Layout className="site-layout">
-            <Header className="header">
+            <Header
+              className="header"
+              style={{
+                background: dark ? '#001529' : '#fff',
+              }}
+            >
               <Button
                 type="text"
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                className={dark ? 'dark-badge' : 'light-badge'}
+                icon={
+                  collapsed ? (
+                    <MenuUnfoldOutlined
+                      size={25}
+                      color={dark ? 'white' : 'black'}
+                    />
+                  ) : (
+                    <MenuFoldOutlined
+                      size={25}
+                      color={dark ? 'white' : 'black'}
+                    />
+                  )
+                }
                 onClick={() => setCollapsed(!collapsed)}
               />
               <div
@@ -97,6 +120,27 @@ const OwnLayout = ({ t }: LocalizationTypes) => {
                   gap: 10,
                 }}
               >
+                <Button
+                  type="text"
+                  onClick={() => {
+                    setDark(!dark);
+                    setStoredDarkMode(!dark);
+                    dispatch(setCurrentDarkMode(!dark));
+                  }}
+                  icon={
+                    dark ? (
+                      <MdOutlineLightMode
+                        size={25}
+                        color={dark ? 'white' : 'black'}
+                      />
+                    ) : (
+                      <MdOutlineDarkMode
+                        size={25}
+                        color={dark ? 'white' : 'black'}
+                      />
+                    )
+                  }
+                />
                 <Dropdown
                   menu={{
                     items,
@@ -120,7 +164,7 @@ const OwnLayout = ({ t }: LocalizationTypes) => {
                   >
                     <Badge
                       dot={true}
-                      color="#1890ff"
+                      color={dark ? 'rgb(24, 144, 255)' : 'rgb(24, 144, 255)'}
                       count={1}
                       className="header-badge"
                     >
@@ -152,6 +196,7 @@ const OwnLayout = ({ t }: LocalizationTypes) => {
                       alignItems: 'center',
                       gap: 5,
                       fontWeight: 'bold',
+                      color: dark ? 'white' : 'black',
                     }}
                   >
                     Language

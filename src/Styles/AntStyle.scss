@@ -1,5 +1,6 @@
 .ant-layout-header {
-    background: #fff;
+    // background: #fff;
+    background: transparent;
     padding: 0;
 }
 .ant-table-wrapper {
@@ -10,27 +11,9 @@
     .ant-table-thead{
         >tr{
             >th{
-                background: #fff ;
+                // background: #fff ;
                 text-align: center;
             }
         }
     }
 }
-
-// .ant-menu-item-selected{
-//     width: 100% !important;
-//     border-radius: 12px 0 0 12px  !important;
-//     background: #F0F1F2 !important;
-//     .navbar-icon{
-//         font-size: 20px !important;
-//     }
-//     .ant-menu-title-content{
-//         font-size: 20px !important;
-//         text-transform: capitalize !important;
-//     }
-// }
-// .ant-menu-item-active{
-//     width: 100% !important;
-//     border-radius: 12px 0 0 12px  !important;
-//     background: #F0F1F2 !important;
-// }

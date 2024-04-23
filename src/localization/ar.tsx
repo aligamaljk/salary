@@ -5,6 +5,7 @@ const ar = {
   profile: 'الملف الشخصي',
   employees: 'الموظفين',
   addEmployeeLink: 'اضافة موظف',
+  faq: 'التعليمات',
   about: 'عن الشركة',
   contact: 'اتصل بنا',
   uploadFile: 'رفع ملف',

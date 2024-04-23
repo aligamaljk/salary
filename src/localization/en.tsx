@@ -5,6 +5,7 @@ const en = {
   profile: 'Profile',
   employees: 'Employees',
   addEmployeeLink: 'Add Employee',
+  faq: 'FAQ',
   about: 'About',
   contact: 'Contact',
   uploadFile: 'Upload File',

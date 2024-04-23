@@ -6,7 +6,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { queryKeys } from "../../Services/react-query/queryKeys";
-import { clearStoredToken, clearStoredUser } from "../../Services/user-storage";
+import { clearStoredToken, clearStoredUser, getStoredDarkMode } from "../../Services/user-storage";
 const AddEmployee = ({t} : LocalizationTypes ) => {
     const [form] = Form.useForm();
       const client = useQueryClient();
@@ -64,8 +64,17 @@ const AddEmployee = ({t} : LocalizationTypes ) => {
     };
   return (
     <>
-      <div className="add-employee">
-        <h1 className="title-add">{t.addEmployee}</h1>
+      <div
+        className="add-employee"
+        style={
+          getStoredDarkMode()
+            ? { backgroundColor: 'rgb(18, 18, 18)', color: 'white' }
+            : {}
+        }
+      >
+        <h1 className="title-add"
+        style={{color: getStoredDarkMode() ? 'white' : 'black'}}
+        >{t.addEmployee}</h1>
         <Form
           name="add-employee"
           layout="vertical"
@@ -157,6 +166,10 @@ const AddEmployee = ({t} : LocalizationTypes ) => {
               size="large"
               className="btn-add-employee"
               loading={loading}
+              style={{
+                // backgroundColor: getStoredDarkMode() ? 'black' : 'white',
+                color: getStoredDarkMode() ? '#000' : '#fff',
+              }}
             >
               {t.addEmployee}
             </Button>

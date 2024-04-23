@@ -1,4 +1,4 @@
-import {Card, Progress, Statistic, Table, Tooltip, Tour, TourProps } from "antd";
+import {Card, Progress, Statistic, Table, Tooltip, Tour, TourProps, Typography } from "antd";
 import { LocalizationTypes } from "../../Types";
 import "./Dashboard.scss";
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
@@ -160,65 +160,77 @@ const Dashboard = ({ t }: LocalizationTypes) => {
         </div>
         <Tour open={open} onClose={() => setOpen(false)} steps={steps} />
         <div className="progress">
-          <Tooltip title="In Progress 60% Completed 30% "
-            className="tooltip-dashboard"
-          >
-            <Progress
-              trailColor="#d9d9d9"
-              percent={60 + Math.floor(Math.random() * (100 - 60 + 1))}
-              success={{ percent: 30 }}
-              status="active"
-              strokeColor="#1890ff"
-              strokeWidth={10}
-              showInfo
-              strokeLinecap="square"
-              // type="circle"
-              type="dashboard"
-            />
-          </Tooltip>
-          <Tooltip title="In Progress 60% Completed 30% "
-            className="tooltip-dashboard"
-          >
-            <Progress
-              trailColor="#d9d9d9"
-              percent={60 + Math.floor(Math.random() * (100 - 60 + 1))}
-              success={{ percent: 30 }}
-              status="active"
-              strokeColor="#1890ff"
-              strokeWidth={10}
-              showInfo
-              strokeLinecap="square"
-              // type="circle"
-              type="dashboard"
-            />
-          </Tooltip>
-          <Tooltip title="In Progress 60% Completed 30% "
-            className="tooltip-dashboard"
-          >
-            <Progress
-              trailColor="#d9d9d9"
-              percent={60 + Math.floor(Math.random() * (100 - 60 + 1))}
-              success={{ percent: 30 }}
-              status="active"
-              strokeColor="#1890ff"
-              strokeWidth={10}
-              showInfo
-              strokeLinecap="square"
-              // type="circle"
-              type="dashboard"
-            />
-          </Tooltip>
+          <Card bordered={false}>
+            <Tooltip
+              title="In Progress 60% Completed 30% "
+              className="tooltip-dashboard"
+            >
+              <Progress
+                trailColor="#d9d9d9"
+                percent={60 + Math.floor(Math.random() * (100 - 60 + 1))}
+                success={{ percent: 30 }}
+                status="active"
+                strokeColor="#1890ff"
+                strokeWidth={10}
+                showInfo
+                strokeLinecap="square"
+                // type="circle"
+                type="dashboard"
+              />
+            </Tooltip>
+          </Card>
+          <Card bordered={false}>
+            <Tooltip
+              title="In Progress 60% Completed 30% "
+              className="tooltip-dashboard"
+            >
+              <Progress
+                trailColor="#d9d9d9"
+                percent={60 + Math.floor(Math.random() * (100 - 60 + 1))}
+                success={{ percent: 30 }}
+                status="active"
+                strokeColor="#1890ff"
+                strokeWidth={10}
+                showInfo
+                strokeLinecap="square"
+                // type="circle"
+                type="dashboard"
+              />
+            </Tooltip>
+          </Card>
+          <Card bordered={false}>
+            <Tooltip
+              title="In Progress 60% Completed 30% "
+              className="tooltip-dashboard"
+            >
+              <Progress
+                trailColor="#d9d9d9"
+                percent={60 + Math.floor(Math.random() * (100 - 60 + 1))}
+                success={{ percent: 30 }}
+                status="active"
+                strokeColor="#1890ff"
+                strokeWidth={10}
+                showInfo
+                strokeLinecap="square"
+                // type="circle"
+                type="dashboard"
+              />
+            </Tooltip>
+          </Card>
         </div>
-        <div className="table-dashboard">
-          <h3 className="title-table-dashboard">Top five employees</h3>
-          <Table
-            className="table-dashboard"
-            dataSource={data}
-            columns={columns}
-            pagination={false}
-            scroll={{ x: 'max-content' }}
-          />
-        </div>
+        <Card bordered={false} className="table-dashboard">
+          <div>
+            {/* <h3 className="title-table-dashboard">Top five employees</h3> */}
+            <Typography.Title className="title-table-dashboard">Top five employees</Typography.Title>
+            <Table
+              className="table-dashboard"
+              dataSource={data}
+              columns={columns}
+              pagination={false}
+              scroll={{ x: 'max-content' }}
+            />
+          </div>
+        </Card>
       </div>
     </>
   );

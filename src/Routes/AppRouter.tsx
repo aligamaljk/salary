@@ -12,6 +12,7 @@ import NotFound from "../Components/Common/NotFound/NotFound"
 import Register from "../Pages/auth/Register/Register"
 import AddEmployee from "../Pages/AddEmployee/AddEmployee"
 import Dashboard from "../Pages/Dashboard/Dashboard"
+import Faq from "../Pages/Faq/Faq";
 const AppRouter = ({ t }: LocalizationTypes) => {
   const routes = useRoutes([
     {
@@ -31,8 +32,8 @@ const AppRouter = ({ t }: LocalizationTypes) => {
           element: <Dashboard t={t} />,
         },
         {
-          path: '/about',
-          element: <div>about</div>,
+          path: '/faq',
+          element: <Faq t={t}/>,
         },
         {
           path: '/employers',

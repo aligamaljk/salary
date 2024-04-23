@@ -5,6 +5,9 @@
             // padding-bottom: 23px !important;
         }
     }
+    .ant-menu{
+        background: transparent !important;
+    }
     .sider-layout{
         overflow: auto;
         min-height: 100vh;
@@ -18,7 +21,7 @@
                 text-align: center;
                 font-weight: bold;
                 font-size: 35px;
-                color: #6D29F6;
+                // color: #6D29F6;
                 cursor: pointer;
                 user-select: none;
                 padding-bottom: 7px;
@@ -45,7 +48,27 @@
         }
         .content{
             padding: 20px 40px;
-            background-color: #F0F1F2;
+            // background-color: #F0F1F2;
         }
     }
+    .light-badge{
+        .ant-btn-icon{
+            span > svg{
+                color: black;
+            }
+        }
+    }
+    .dark-badge{
+        .ant-btn-icon{
+            span > svg{
+                color: white;
+            }
+        }
+    }
+}
+
+body{
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
 }

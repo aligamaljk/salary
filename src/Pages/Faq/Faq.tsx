@@ -1,0 +1,97 @@
+
+import { Collapse, CollapseProps, theme } from 'antd';
+import { LocalizationTypes } from '../../Types'
+import "./Faq.scss"
+import { CaretRightOutlined } from '@ant-design/icons';
+import { CSSProperties } from 'react';
+const Faq = ({t} : LocalizationTypes) => {
+    const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+
+    const items: CollapseProps['items'] = [
+      {
+        key: '1',
+        label: 'Question 1',
+        children: <p>{text}</p>,
+      },
+      {
+        key: '2',
+        label: 'Question 2',
+        children: <p>{text}</p>,
+      },
+      {
+        key: '3',
+        label: 'Question 3',
+        children: <p>{text}</p>,
+      },
+      {
+        key: '4',
+        label: 'Question 4',
+        children: <p>{text}</p>,
+      },
+      {
+        key: '5',
+        label: 'Question 5',
+        children: <p>{text}</p>,
+      },
+    ];
+    const getItems: (panelStyle: CSSProperties) => CollapseProps['items'] = (
+      panelStyle
+    ) => [
+      {
+        key: '1',
+        label: 'This is panel header 1',
+        children: <p>{text}</p>,
+        style: panelStyle,
+      },
+      {
+        key: '2',
+        label: 'This is panel header 2',
+        children: <p>{text}</p>,
+        style: panelStyle,
+      },
+      {
+        key: '3',
+        label: 'This is panel header 3',
+        children: <p>{text}</p>,
+        style: panelStyle,
+      },
+    ];
+
+      const { token } = theme.useToken();
+
+      const panelStyle: React.CSSProperties = {
+        marginBottom: 24,
+        background: token.colorFillAlter,
+        borderRadius: token.borderRadiusLG,
+        border: 'none',
+      };
+  return (
+    <div className="faq">
+      <h1>{t.faq}</h1>
+      <div className=""
+        style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '80px',
+        }}
+      >
+        <Collapse accordion items={items} defaultActiveKey={['1']} />
+        <Collapse
+            bordered={false}
+            defaultActiveKey={['1']}
+            expandIcon={({ isActive }) => (
+                <CaretRightOutlined rotate={isActive ? 90 : 0} />
+            )}
+            style={{ background: token.colorBgContainer }}
+            items={getItems(panelStyle)}
+        />
+        </div>
+    </div>
+  );
+}
+
+export default Faq
