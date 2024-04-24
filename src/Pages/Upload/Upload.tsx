@@ -9,10 +9,12 @@ import { useMutation } from '@tanstack/react-query';
 import { AttendanceTime, ErrorMessage, LocalizationTypes } from '../../Types';
 import { clearStoredToken, clearStoredUser } from '../../Services/user-storage';
 import { useNavigate } from 'react-router';
+import { useAppSelector } from '../../Store/hooks';
 // console.log(getStoredToken(), 'token');
 const UploadFil = ({ t }: LocalizationTypes) => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
+  const { currentDarkMode } = useAppSelector((state) => state.user)
   const [fileList, setFileList] = useState<UploadFile<unknown>[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<unknown[]>([]);
@@ -154,20 +156,24 @@ const UploadFil = ({ t }: LocalizationTypes) => {
             name="basic"
             onFinish={onFinish}
             className="form-upload"
-            form= {form}
+            form={form}
           >
             <Form.Item
               name="file"
               label="File"
               rules={[{ required: true, message: 'Please select a file!' }]}
-              className="upload-file"
+              className={currentDarkMode ? 'form-upload-dark' : 'upload-file'}
             >
               <Upload {...props}>
                 <span>Upload File xls</span>
               </Upload>
             </Form.Item>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button
+                type="primary"
+                htmlType="submit"
+                className={currentDarkMode ? 'btn-dark' : ''}
+              >
                 Submit
               </Button>
             </Form.Item>

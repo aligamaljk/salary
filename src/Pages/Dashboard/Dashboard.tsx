@@ -137,7 +137,7 @@ const Dashboard = ({ t }: LocalizationTypes) => {
               <p>100 counter </p>
             </div>
           </Card>
-          <Card bordered={false} ref={ref2}>
+          <Card bordered={false} ref={ref2}             className="card">
             <Statistic
               title="النسبة المئوية الخاصة بالموظفين الذين لا يتاخرون"
               value={11.28}
@@ -147,7 +147,7 @@ const Dashboard = ({ t }: LocalizationTypes) => {
               suffix="%"
             />
           </Card>
-          <Card bordered={false} ref={ref3}>
+          <Card bordered={false} ref={ref3}            className="card">
             <Statistic
               title="النسبة المئوية الخاصة بالموظفين الذين يتاخرون"
               value={9.3}
